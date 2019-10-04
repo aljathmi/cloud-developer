@@ -4,16 +4,16 @@ import { config } from './config/config';
 const c = config.dev;
 
 //Configure AWS
-var credentials = new AWS.SharedIniFileCredentials({profile: c.aws_profile});
-AWS.config.credentials = credentials;
-//Configure AWS
 if(c.aws_profile !== "DEPLOYED") {
-  var credentials = new AWS.SharedIniFileCredentials({profile: 'default'});
+  var credentials = new AWS.SharedIniFileCredentials({profile: c.aws_profile});
   AWS.config.credentials = credentials;
 }
+
 export const s3 = new AWS.S3({
   signatureVersion: 'v4',
   region: c.aws_region,
+  accessKeyId: "AKIA44DAC2WOD5Y2QU5L",
+  secretAccessKey: "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",
   params: {Bucket: c.aws_media_bucket}
 });
 

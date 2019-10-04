@@ -90,7 +90,7 @@ router.post('/login', async (req: Request, res: Response) => {
 });
 
 //register a new user
-router.post('/', requireAuth, async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response) => {
     const email = req.body.email;
     const plainTextPassword = req.body.password;
     // check email is valid
