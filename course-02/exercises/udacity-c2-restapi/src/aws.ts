@@ -12,8 +12,8 @@ if(c.aws_profile !== "DEPLOYED") {
 export const s3 = new AWS.S3({
   signatureVersion: 'v4',
   region: c.aws_region,
-  accessKeyId: "AKIA44DAC2WOD5Y2QU5L",
-  secretAccessKey: "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",
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   params: {Bucket: c.aws_media_bucket}
 });
 
